@@ -6,6 +6,7 @@ const UseStateBasics = () => {
   const handleClick = () => {
     if (text === "Random Value") {
       setText("Hello World");
+    } else {
     }
   };
   return (
