@@ -6,7 +6,9 @@ const UseStateBasics = () => {
   return (
     <React.Fragment>
       <h1>{text}</h1>
-      <button type="button">Change Title</button>
+      <button type="button" className="btn">
+        Change Title
+      </button>
     </React.Fragment>
   );
 };
