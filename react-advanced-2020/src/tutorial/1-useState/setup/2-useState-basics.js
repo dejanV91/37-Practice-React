@@ -2,7 +2,10 @@ import React, { useState } from "react";
 
 const UseStateBasics = () => {
   const [text, setText] = useState("Random Value");
-  const handleChange = () => {};
+  const handleChange = () => {
+    if ((text = "Random Value")) {
+    }
+  };
 
   return (
     <React.Fragment>
