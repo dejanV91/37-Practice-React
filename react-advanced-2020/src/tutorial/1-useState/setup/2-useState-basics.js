@@ -6,7 +6,7 @@ const UseStateBasics = () => {
     if ((text = "Random Value")) {
       setText("Hello World");
     } else {
-      console.log("dejan");
+      setText("Random Value");
     }
   };
 
