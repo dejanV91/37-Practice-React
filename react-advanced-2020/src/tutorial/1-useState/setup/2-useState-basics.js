@@ -11,10 +11,12 @@ const UseStateBasics = () => {
   };
 
   return (
+    <React.Fragment>
       <h1>{data}</h1>
       <button type="button" className="btn" onClick={handleChange}>
         Change Title
       </button>
+    </React.Fragment>
   );
 };
 
