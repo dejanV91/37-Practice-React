@@ -14,7 +14,7 @@ const UseStateBasics = () => {
     <React.Fragment>
       <h1>{data}</h1>
       <button type="button" className="btn" onClick={handleChange}>
-        Change Title
+        Change Titl
       </button>
     </React.Fragment>
   );
