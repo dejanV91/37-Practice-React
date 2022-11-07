@@ -3,7 +3,8 @@ import React, { useState } from "react";
 const UseStateBasics = () => {
   const [data, setText] = useState("Random Value");
   const handleChange = () => {
-    setText(2);
+    if (text === "Random Value") {
+    }
   };
 
   return (
