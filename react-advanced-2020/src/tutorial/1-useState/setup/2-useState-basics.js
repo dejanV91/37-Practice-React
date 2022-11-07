@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const UseStateBasics = () => {
-  const [data, setText] = useState("Random Value");
+  const [text, setText] = useState("Random Value");
   const handleChange = () => {
     if (text === "Random Value") {
       setText("Hello");
@@ -12,7 +12,7 @@ const UseStateBasics = () => {
 
   return (
     <React.Fragment>
-      <h1>{data}</h1>
+      <h1>{text}</h1>
       <button type="button" className="btn" onClick={handleChange}>
         Change Title
       </button>
