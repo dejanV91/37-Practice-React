@@ -4,6 +4,7 @@ const UseStateBasics = () => {
   const [data, setText] = useState("Random Value");
   const handleChange = () => {
     if (text === "Random Value") {
+      setText("Hello");
     }
   };
 
