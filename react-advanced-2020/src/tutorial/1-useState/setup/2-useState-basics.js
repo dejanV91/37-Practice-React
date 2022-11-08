@@ -13,6 +13,7 @@ const UseStateBasics = () => {
   return (
     <React.Fragment>
       <h1>{text}</h1>
+      <button></button>
     </React.Fragment>
   );
 };
