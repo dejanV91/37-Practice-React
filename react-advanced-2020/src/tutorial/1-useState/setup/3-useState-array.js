@@ -1,8 +1,14 @@
-import React from 'react';
-import { data } from '../../../data';
+import React, { Fragment } from "react";
+import { data } from "../../../data";
 
 const UseStateArray = () => {
-  return <h2>useState array example</h2>;
+  const [people, setPeople] = React.useState([data]);
+
+  return (
+    <React.Fragment>
+      <h2>UseState Array</h2>
+    </React.Fragment>
+  );
 };
 
 export default UseStateArray;
