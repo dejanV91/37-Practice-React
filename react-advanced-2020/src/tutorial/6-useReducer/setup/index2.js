@@ -1,8 +1,15 @@
 import React, { useReducer, useState } from "react";
 import Modal2 from "./Modal2";
 const reducer = (state, action) => {
-  console.log(state);
-  console.log(action);
+  if (action.type === "ADD_ITEM") {
+    const newPeople = [...state.people, action.payload];
+    return {
+      ...state,
+      people: newPeople,
+      isModalOpen: true,
+      modalContent: "item added",
+    };
+  }
 };
 const index2 = () => {
   const defaultState = {
