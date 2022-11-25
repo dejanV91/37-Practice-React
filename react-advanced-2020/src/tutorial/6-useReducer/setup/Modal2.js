@@ -1,9 +1,9 @@
 import React from "react";
 
-const Modal2 = () => {
+const Modal2 = ({ modalContent }) => {
   return (
     <div className="modal">
-      <p>modal</p>
+      <p>{modalContent}</p>
     </div>
   );
 };
