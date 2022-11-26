@@ -1,8 +1,8 @@
 import React from "react";
 
-const Modal2 = ({ modalContent }) => {
+const Modal2 = ({ modalContent, color }) => {
   return (
-    <div className="modal">
+    <div className="modal" style={{ backgroundColor: color }}>
       <p>{modalContent}</p>
     </div>
   );

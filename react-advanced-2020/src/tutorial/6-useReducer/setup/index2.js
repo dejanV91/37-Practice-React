@@ -1,13 +1,22 @@
 import React, { useReducer, useState } from "react";
 import Modal2 from "./Modal2";
+
 const reducer = (state, action) => {
   if (action.type === "ADD_ITEM") {
     const newPeople = [...state.people, action.payload];
     return {
-      ...state,
       people: newPeople,
       isModalOpen: true,
       modalContent: "item added",
+      color: "#dcf4da",
+    };
+  }
+  if (action.type === "EMPTY") {
+    return {
+      people: { ...state },
+      isModalOpen: true,
+      modalContent: "please enter name",
+      color: "#f8afb9",
     };
   }
 };
@@ -16,7 +25,9 @@ const index2 = () => {
     people: [],
     isModalOpen: false,
     modalContent: "hello world",
+    color: "",
   };
+
   const [name, setName] = useState("");
   const [state, dispatch] = useReducer(reducer, defaultState);
 
@@ -24,14 +35,18 @@ const index2 = () => {
     e.preventDefault();
     if (name) {
       const newPeople = { id: new Date().getTime().toString(), name };
-      dispatch({ type: "ADD_ITEM", newPeople });
+      dispatch({ type: "ADD_ITEM", payload: newPeople });
       setName("");
+    } else {
+      dispatch({ type: "EMPTY" });
     }
   };
 
   return (
     <>
-      {state.isModalOpen && <Modal2 modalContent={state.modalContent} />}
+      {state.isModalOpen && (
+        <Modal2 modalContent={state.modalContent} color={state.color} />
+      )}
       <form onSubmit={handleSubmit}>
         <div>
           <input
@@ -42,13 +57,16 @@ const index2 = () => {
         </div>
         <button type="submit">add</button>
       </form>
-      {/* <div>
+      <div>
         {state.people.map((item) => {
-         
           const { id, name } = item;
-          return <h2 key={id}>{name}</h2>;
+          return (
+            <div key={id}>
+              <h3>{name}</h3>
+            </div>
+          );
         })}
-      </div> */}
+      </div>
     </>
   );
 };
