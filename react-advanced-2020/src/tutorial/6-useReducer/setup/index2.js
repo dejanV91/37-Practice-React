@@ -1,25 +1,7 @@
 import React, { useReducer, useState } from "react";
 import Modal2 from "./Modal2";
+import reducer from "./reducer";
 
-const reducer = (state, action) => {
-  if (action.type === "ADD_ITEM") {
-    const newPeople = [...state.people, action.payload];
-    return {
-      people: newPeople,
-      isModalOpen: true,
-      modalContent: "item added",
-      color: "#dcf4da",
-    };
-  }
-  if (action.type === "EMPTY") {
-    return {
-      people: { ...state },
-      isModalOpen: true,
-      modalContent: "please enter name",
-      color: "#f8afb9",
-    };
-  }
-};
 const index2 = () => {
   const defaultState = {
     people: [],
@@ -42,10 +24,18 @@ const index2 = () => {
     }
   };
 
+  const closeModal = () => {
+    dispatch({ type: "CLOSE_MODAL" });
+  };
+
   return (
     <>
       {state.isModalOpen && (
-        <Modal2 modalContent={state.modalContent} color={state.color} />
+        <Modal2
+          closeModal={closeModal}
+          modalContent={state.modalContent}
+          color={state.color}
+        />
       )}
       <form onSubmit={handleSubmit}>
         <div>
@@ -61,12 +51,22 @@ const index2 = () => {
         {state.people.map((item) => {
           const { id, name } = item;
           return (
-            <div key={id}>
+            <div key={id} className={"item"}>
               <h3>{name}</h3>
+              <button
+                onClick={() => dispatch({ type: "REMOVE_ITEM", payload: id })}
+              >
+                remove
+              </button>
             </div>
           );
         })}
       </div>
+      {state.people.length !== 0 && (
+        <button onClick={() => dispatch({ type: "CLEAR_ALL" })}>
+          clear all
+        </button>
+      )}
     </>
   );
 };
